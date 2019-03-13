@@ -1,0 +1,54 @@
+\documentclass[12pt]{beamer}
+
+\def\languages{french, english}
+
+%%%%%%%%%%%%%%%%%%% Theme
+
+\usetheme{metropolis}
+
+%%%%%%%%%%%%%%%%%%% Libraries
+
+\input{./include/libraries/bibliography.tex}
+\input{./include/libraries/default.tex}
+\input{./include/libraries/figures.tex}
+\input{./include/libraries/units.tex}
+
+%%%%%%%%%%%%%%%%%%% Bibliography
+
+\addbibresource{resources/bib/sample.bib}
+
+%%%%%%%%%%%%%%%%%%% Titlepage
+
+\title{A sleek \LaTeX{} beamer}
+\subtitle{Based on Metropolis theme}
+\author{François Rozet}
+\institute{University of Liège}
+\date{\today}
+\titlelogo{resources/pdf/logo.pdf}
+\framelogo{resources/pdf/logo.pdf}
+
+%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\maketitle
+
+\section{Section}
+
+\begin{frame}
+\end{frame}
+
+\begin{frame}{Frame}
+\end{frame}
+
+\begin{frame}[standout]
+  Standout
+\end{frame}
+
+\begin{frame}
+    \nocite{einstein}
+    \nocite{knuthwebsite}
+    \printbibliography
+\end{frame}
+
+\end{document}
