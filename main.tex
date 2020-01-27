@@ -1,21 +1,17 @@
 \documentclass[12pt]{beamer}
 
-\def\languages{french, english}
-
 %%%%%%%%%%%%%%%%%%% Theme
 
 \usetheme{metropolis}
 
-%%%%%%%%%%%%%%%%%%% Libraries
+%%%%%%%%%%%%%%%%%%% Packages
 
-\input{./include/libraries/bibliography.tex}
-\input{./include/libraries/default.tex}
-\input{./include/libraries/figures.tex}
-\input{./include/libraries/units.tex}
+\usepackage[english]{babel}
+\usepackage{sleek-beamer}
 
 %%%%%%%%%%%%%%%%%%% Bibliography
 
-\addbibresource{resources/bib/sample.bib}
+\addbibresource{./resources/bib/references.bib}
 
 %%%%%%%%%%%%%%%%%%% Titlepage
 
@@ -24,8 +20,8 @@
 \author{François Rozet}
 \institute{University of Liège}
 \date{\today}
-\titlelogo{resources/pdf/logo.pdf}
-\framelogo{resources/pdf/logo.pdf}
+\titlelogo{./resources/pdf/logo.pdf}
+\framelogo{./resources/pdf/logo.pdf}
 
 %%%%%%%%%%%%%%%%%%%
 

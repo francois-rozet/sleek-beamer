@@ -1,7 +1,7 @@
 # Sleek Beamer
 
-Sleek Beamer is a modular LaTeX beamer template based on the [Metropolis](https://github.com/matze/mtheme) theme.
+Sleek Beamer is a simple LaTeX beamer template based on the [Metropolis](https://github.com/matze/mtheme) theme.
 
-## Authors
+## Author
 
 * **François Rozet** - [Donshel](https://github.com/Donshel)

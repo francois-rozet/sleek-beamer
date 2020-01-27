@@ -1,0 +1,108 @@
+\ProvidesPackage{sleek-beamer}[2019/01/27 v.01 Sleek Beamer]
+
+%%%%%%%%%% Require
+
+%%%%% Encoding
+
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{eurosym}
+
+%%%%% Style
+
+\RequirePackage{csquotes}
+\RequirePackage{color}
+\usepackage{textpos}
+
+%%%%% Mathematics
+
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{bm}
+\RequirePackage{esint}
+\RequirePackage[makeroom]{cancel}
+
+%%%%% Units
+
+\RequirePackage{siunitx}
+
+%%%%% Figures
+
+\RequirePackage{float}
+\RequirePackage[skip=1em]{caption}
+\RequirePackage{subcaption}
+
+%%%%% Arrays
+
+\RequirePackage{array}
+\RequirePackage{multirow}
+\RequirePackage{multicol}
+
+%%%%% Bibliography
+
+\RequirePackage[
+	backend=biber,
+	style=numeric-comp,
+	sorting=none,
+	maxbibnames=99
+]{biblatex}
+
+%%%%%%%%%% Options
+
+%%%%% Arrays
+
+\renewcommand{\arraystretch}{1.2}
+
+%%%%% Mathematics
+
+\newcommand{\rbk}[1]{\left(#1\right)}
+\newcommand{\cbk}[1]{\left\{#1\right\}}
+\newcommand{\sbk}[1]{\left[#1\right]}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+
+\newcommand{\deriv}{\mathrm{d}}
+\DeclareMathOperator{\tr}{tr}
+
+%%%%% Figures
+
+\newcommand{\noskipcaption}[1]{\caption{#1}\vspace{-1em}}
+
+%%%%% Languages
+
+\DeclareOption{french}{
+	%%%%% Lists
+	\frenchbsetup{StandardLists=true}
+
+	%%%%% Units
+	\sisetup{output-decimal-marker=,}
+
+	%%%%% Captions
+	\addto\captionsfrench{\def\figurename{Figure}}
+	\addto\captionsfrench{\def\tablename{Table}}
+	\addto\captionsfrench{\def\proofname{Preuve}}
+
+	%%%%% Macros
+	\def\cad{c.-à-d.}
+	\def\Cad{C.-à-d.}
+}
+
+%%%%% Beamer Title
+
+\newcommand{\titlelogo}[1]{
+	\titlegraphic{
+		\hfill\includegraphics[height=0.2\textheight]{#1}
+	}
+}
+
+\newcommand{\framelogo}[1]{
+	\addtobeamertemplate{frametitle}{}{
+		\begin{textblock*}{\textwidth}(\textwidth,-1.28\baselineskip)
+			\includegraphics[height=\baselineskip]{#1}
+		\end{textblock*}
+	}
+}
+
+\ProcessOptions\relax
+
+\endinput
