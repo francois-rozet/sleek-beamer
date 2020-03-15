@@ -4,4 +4,4 @@ Sleek Beamer is a simple LaTeX beamer template based on the [Metropolis](https:/
 
 ## Author
 
-* **François Rozet** - [Donshel](https://github.com/Donshel)
+* **François Rozet** - [francois-rozet](https://github.com/francois-rozet)
