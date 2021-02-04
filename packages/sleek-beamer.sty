@@ -1,107 +1,163 @@
-\ProvidesPackage{sleek-beamer}[2019/01/27 v.01 Sleek Beamer]
+\ProvidesPackage{sleek-beamer}[2021/02/04 v.02 Sleek Beamer]
 
-%%%%%%%%%% Require
+%%%%%%%%%%%%%%%%
+% Requirements %
+%%%%%%%%%%%%%%%%
 
-%%%%% Encoding
+% Encoding
 
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[T1]{fontenc}
 \RequirePackage{eurosym}
 
-%%%%% Style
+% Style
 
 \RequirePackage{csquotes}
 \RequirePackage{color}
-\usepackage{textpos}
+\RequirePackage{textpos}
 
-%%%%% Mathematics
+% Mathematics
 
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
 \RequirePackage{bm}
 \RequirePackage{esint}
-\RequirePackage[makeroom]{cancel}
 
-%%%%% Units
+% Units
 
 \RequirePackage{siunitx}
 
-%%%%% Figures
+% Figures
 
 \RequirePackage{float}
 \RequirePackage[skip=1em]{caption}
 \RequirePackage{subcaption}
 
-%%%%% Arrays
+% Arrays
 
 \RequirePackage{array}
+\RequirePackage{booktabs}
 \RequirePackage{multirow}
 \RequirePackage{multicol}
 
 %%%%% Bibliography
 
 \RequirePackage[
-	backend=biber,
-	style=numeric-comp,
-	sorting=none,
-	maxbibnames=99
+    backend=biber,
+    style=numeric-comp,
+    sorting=none,
+    maxcitenames=1,
+    maxbibnames=99,
+    backref=true
 ]{biblatex}
 
-%%%%%%%%%% Options
+\DeclareFieldFormat*{title}{\enquote{#1}}
+\DeclareFieldFormat*{citetitle}{\enquote{#1}}
 
-%%%%% Arrays
+%%%%%%%%%%%%
+% Settings %
+%%%%%%%%%%%%
 
-\renewcommand{\arraystretch}{1.2}
+% Arrays
 
-%%%%% Mathematics
+\renewcommand{\arraystretch}{1.1}
 
-\newcommand{\rbk}[1]{\left(#1\right)}
-\newcommand{\cbk}[1]{\left\{#1\right\}}
-\newcommand{\sbk}[1]{\left[#1\right]}
-\newcommand{\abs}[1]{\left|#1\right|}
-\newcommand{\norm}[1]{\left\|#1\right\|}
+% Bibliography
 
-\newcommand{\deriv}{\mathrm{d}}
-\DeclareMathOperator{\tr}{tr}
-
-%%%%% Figures
-
-\newcommand{\noskipcaption}[1]{\caption{#1}\vspace{-1em}}
-
-%%%%% Languages
-
-\DeclareOption{french}{
-	%%%%% Lists
-	\frenchbsetup{StandardLists=true}
-
-	%%%%% Units
-	\sisetup{output-decimal-marker=,}
-
-	%%%%% Captions
-	\addto\captionsfrench{\def\figurename{Figure}}
-	\addto\captionsfrench{\def\tablename{Table}}
-	\addto\captionsfrench{\def\proofname{Preuve}}
-
-	%%%%% Macros
-	\def\cad{c.-à-d.}
-	\def\Cad{C.-à-d.}
+\DefineBibliographyStrings{english}{
+    backrefpage = {page},
+    backrefpages = {pages}
 }
 
-%%%%% Beamer Title
+\DefineBibliographyStrings{french}{
+    backrefpage = {page},
+    backrefpages = {pages}
+}
+
+% Languages
+
+\DeclareOption{french}{
+    %% Lists
+    \frenchbsetup{StandardLists=true}
+
+    %% Units
+    \sisetup{output-decimal-marker=,}
+
+    %% Captions
+    \addto\captionsfrench{\def\figurename{Figure}}
+    \addto\captionsfrench{\def\tablename{Table}}
+    \addto\captionsfrench{\def\proofname{Preuve}}
+
+    %% Macros
+    \def\cad{c.-à-d.}
+    \def\Cad{C.-à-d.}
+}
+
+%%%%%%%%%%%%
+% Commands %
+%%%%%%%%%%%%
+
+% Abbreviations
+
+\def\cf{\emph{cf.}} % confer
+\def\eg{\emph{e.g.}} % exempli gratia
+\def\ie{\emph{i.e.}} % id est
+
+% Mathematics
+
+\newcommand{\rbk}[1]{\left(#1\right)} % round brackets (parentheses)
+\newcommand{\cbk}[1]{\left\{#1\right\}} % curly brackets {braces}
+\newcommand{\sbk}[1]{\left[#1\right]} % square brackets [brackets]
+\newcommand{\abs}[1]{\left|#1\right|} % absolute value |x|
+\newcommand{\norm}[1]{\left\|#1\right\|} % norm ||x||
+
+\newcommand{\diff}{\mathrm{d}} % upright 'd' for differential
+\DeclareMathOperator{\tr}{tr} % trace
+
+% Figures
+
+\newcommand{\noskipcaption}[1]{\caption{#1}\vspace{-1em}} % caption without additional vertical space
+
+% Footnotes
+
+\makeatletter
+\def\blindfootnote{\gdef\@thefnmark{}\@footnotetext} % footnote without number
+\makeatother
+
+%%%%%%%%%
+% Theme %
+%%%%%%%%%
+
+\setbeamerfont{frametitle}{size=\normalsize}
+
+\makeatletter
+\setlength{\metropolis@frametitle@padding}{1.6ex}
+\makeatother
 
 \newcommand{\titlelogo}[1]{
-	\titlegraphic{
-		\hfill\includegraphics[height=0.2\textheight]{#1}
-	}
+    \titlegraphic{
+        \hfill\includegraphics[height=0.2\textheight]{#1}
+    }
 }
 
 \newcommand{\framelogo}[1]{
-	\addtobeamertemplate{frametitle}{}{
-		\begin{textblock*}{\textwidth}(\textwidth,-1.28\baselineskip)
-			\includegraphics[height=\baselineskip]{#1}
-		\end{textblock*}
-	}
+    \addtobeamertemplate{frametitle}{}{
+        \begin{textblock*}{\paperwidth}(\textwidth+1.6ex, -\baselineskip-0.8ex)
+            \includegraphics[height=\baselineskip]{#1}
+        \end{textblock*}
+    }
 }
+
+\setbeamertemplate{footline}{%
+    \begin{beamercolorbox}[wd=\paperwidth, sep=1.6ex]{footline}%
+        \usebeamerfont{page number in head/foot}%
+        \usebeamertemplate*{frame footer}
+        \hfill%
+        \usebeamertemplate*{frame numbering}
+    \end{beamercolorbox}%
+}
+
+\renewcommand*{\bibfont}{\small}
 
 \ProcessOptions\relax
 

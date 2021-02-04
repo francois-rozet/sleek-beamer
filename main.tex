@@ -1,19 +1,27 @@
 \documentclass[12pt]{beamer}
 
-%%%%%%%%%%%%%%%%%%% Theme
+%%%%%%%%%
+% Theme %
+%%%%%%%%%
 
 \usetheme{metropolis}
 
-%%%%%%%%%%%%%%%%%%% Packages
+%%%%%%%%%%%%
+% Packages %
+%%%%%%%%%%%%
 
 \usepackage[english]{babel}
 \usepackage{packages/sleek-beamer}
 
-%%%%%%%%%%%%%%%%%%% Bibliography
+%%%%%%%%%%%%%%%%
+% Bibliography %
+%%%%%%%%%%%%%%%%
 
 \addbibresource{./resources/bib/references.bib}
 
-%%%%%%%%%%%%%%%%%%% Titlepage
+%%%%%%%%%%%%%%
+% Title-page %
+%%%%%%%%%%%%%%
 
 \title{A sleek \LaTeX{} beamer}
 \subtitle{Based on Metropolis theme}
@@ -23,7 +31,9 @@
 \titlelogo{./resources/pdf/logo.pdf}
 \framelogo{./resources/pdf/logo.pdf}
 
-%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%
+% Document %
+%%%%%%%%%%%%
 
 \begin{document}
 
@@ -32,20 +42,22 @@
 \section{Section}
 
 \begin{frame}
+    This is an equation. $$ a^2 + b^2 = c^2 $$
 \end{frame}
 
 \begin{frame}{Frame}
+    \blindfootnote{This is a footnote.}
 \end{frame}
 
 \begin{frame}[standout]
   Standout
 \end{frame}
 
-\begin{frame}[allowframebreaks]
+\begin{frame}[allowframebreaks]{References}
     \nocite{einstein}
     \nocite{knuthwebsite}
     \nocite{dirac}
-    \printbibliography
+    \printbibliography[heading=none]
 \end{frame}
 
 \end{document}
