@@ -1,0 +1,130 @@
+\ProvidesPackage{tweaks}[2021/11/10 v1.0.0 Metropolis tweaks]
+
+\usetheme{metropolis}
+\usefonttheme{professionalfonts}
+
+%%%%%%%%%%%%%%%%
+% Requirements %
+%%%%%%%%%%%%%%%%
+
+\RequirePackage{textpos}
+
+%%%%%%%%%%
+% Colors %
+%%%%%%%%%%
+
+\definecolor{DarkBlue}{HTML}{273C75}
+\definecolor{BrightOrange}{HTML}{EB811B}
+\definecolor{BrightGreen}{HTML}{14B03D}
+
+\renewcommand*{\metropolis@colors@dark}{
+    \setbeamercolor{normal text}{%
+        fg=white,
+        bg=DarkBlue
+    }
+}
+
+\setbeamercolor{normal text}{%
+    fg=black,
+    bg=white
+}
+
+\setbeamercolor{palette primary}{%
+    fg=white,
+    bg=DarkBlue
+}
+
+\setbeamercolor{alerted text}{%
+    fg=BrightOrange
+}
+
+\setbeamercolor{example text}{%
+    fg=BrightGreen
+}
+
+\setbeamercolor{progress bar}{%
+    use=alerted text,
+    fg=alerted text.fg,
+    bg=black!30
+}
+
+\setbeamercolor{block title}{%
+    bg=DarkBlue!20
+}
+
+\setbeamercolor{block body}{
+    bg=DarkBlue!10
+}
+
+%%%%%%%%%
+% Title %
+%%%%%%%%%
+
+\def\maketitle{%
+    \ifbeamer@inframe
+        \titlepage
+    \else
+        {
+        \metroset{background=dark}
+        \frame[plain, noframenumbering]{\titlepage}
+        }
+    \fi
+}
+
+\newcommand{\titlelogo}[1]{
+    \titlegraphic{
+        \hfill%
+        \includegraphics[height=0.2\textheight]{#1}
+    }
+}
+
+%%%%%%%%%%
+% Frame %
+%%%%%%%%%%
+
+\setbeamersize{text margin left=6ex, text margin right=6ex}
+
+%%%%%%%%%%
+% Header %
+%%%%%%%%%%
+
+\setbeamerfont{frametitle}{size=\normalsize}
+
+\makeatletter
+\setlength{\metropolis@frametitle@padding}{1.6ex}
+\makeatother
+
+\newcommand{\framelogo}[1]{
+    \addtobeamertemplate{frametitle}{}{
+        \begin{textblock*}{\paperwidth}(-6.8ex, -\baselineskip-0.8ex)
+            \hfill%
+            \includegraphics[height=\baselineskip]{#1}
+        \end{textblock*}
+    }
+}
+
+%%%%%%%%%%
+% Footer %
+%%%%%%%%%%
+
+\setbeamertemplate{footline}{%
+    \ifbool{metropolis@standout}{}{%
+        \begin{beamercolorbox}[wd=\paperwidth, sep=1.6ex]{footline}%
+            \usebeamerfont{page number in head/foot}%
+            \usebeamertemplate*{frame footer}%
+            \hfill%
+            \usebeamertemplate*{frame numbering}
+        \end{beamercolorbox}%
+    }
+}
+
+%%%%%%%%%%
+% Blocks %
+%%%%%%%%%%
+
+\makeatletter
+\setlength{\metropolis@blockadjust}{0ex}
+\renewcommand{\metropolis@strut}{}
+\makeatother
+
+\endinput

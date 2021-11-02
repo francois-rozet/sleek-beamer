@@ -1,17 +1,12 @@
 \documentclass[12pt]{beamer}
 
-%%%%%%%%%
-% Theme %
-%%%%%%%%%
-
-\usetheme{metropolis}
-
 %%%%%%%%%%%%
 % Packages %
 %%%%%%%%%%%%
 
 \usepackage[english]{babel}
-\usepackage{packages/sleek-beamer}
+\usepackage{packages/tweaks}
+\usepackage{packages/sleek}
 
 %%%%%%%%%%%%%%%%
 % Bibliography %
@@ -28,8 +23,8 @@
 \author{François Rozet}
 \institute{University of Liège}
 \date{\today}
-\titlelogo{./resources/pdf/logo.pdf}
-\framelogo{./resources/pdf/logo.pdf}
+\titlelogo{./resources/pdf/logo_neg.pdf}
+\framelogo{./resources/pdf/logo_neg.pdf}
 
 %%%%%%%%%%%%
 % Document %
@@ -46,11 +41,19 @@
 \end{frame}
 
 \begin{frame}{Frame}
+    \begin{block}{Block}
+        This is a block.
+    \end{block}
+
+    \begin{alertblock}{Alert}
+        This is an \alert{alert} block.
+    \end{alertblock}
+
     \blindfootnote{This is a footnote.}
 \end{frame}
 
 \begin{frame}[standout]
-  Standout
+    Standout
 \end{frame}
 
 \begin{frame}[allowframebreaks]{References}
