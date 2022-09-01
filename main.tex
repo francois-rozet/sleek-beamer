@@ -5,14 +5,13 @@
 %%%%%%%%%%%%
 
 \usepackage[english]{babel}
-\usepackage{packages/tweaks}
-\usepackage{packages/sleek}
+\usepackage{sleek}
 
 %%%%%%%%%%%%%%%%
 % Bibliography %
 %%%%%%%%%%%%%%%%
 
-\addbibresource{./resources/bib/references.bib}
+\addbibresource{references.bib}
 
 %%%%%%%%%%%%%%
 % Title-page %
@@ -23,8 +22,6 @@
 \author{François Rozet}
 \institute{University of Liège}
 \date{\today}
-\titlelogo{./resources/pdf/logo_neg.pdf}
-\framelogo{./resources/pdf/logo_neg.pdf}
 
 %%%%%%%%%%%%
 % Document %
@@ -50,6 +47,23 @@
     \end{alertblock}
 
     \blindfootnote{This is a footnote.}
+\end{frame}
+
+\begin{frame}{Table}
+    \begin{table}
+        \centering
+        \begin{tabular}{lrrc}
+            \toprule
+            \textbf{First} & \textbf{Second} & \textbf{Third} & \textbf{Fourth} \\
+            \midrule
+            Foo & 13.37 & 384,394 & $\alpha$ \\
+            Bar & 2.17 & 1,392 & $\beta$ \\
+            Baz & 3.14 & 83,742 & $\delta$ \\
+            Qux & 7.59 & 974 & $\gamma$ \\
+            \bottomrule
+        \end{tabular}
+        \caption{A table caption.}
+    \end{table}
 \end{frame}
 
 \begin{frame}[standout]
