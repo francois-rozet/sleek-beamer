@@ -66,6 +66,22 @@
     \end{table}
 \end{frame}
 
+\begin{frame}{Algorithm}
+    \begin{algorithm}[H]
+        \caption{Training $f_\phi(x)$} \label{alg:training}
+        \begin{algorithmic}[1]
+            \vspace{-0.5em}
+            \For{$i = 1$ to $M$}
+                \For{$j = 1$ to $N$}
+                    \State $x_j, y_j \sim p(x, y)$
+                \EndFor{}
+                \State $\ell \gets \sum_{j=1}^N \| f_\phi(x_j) - y_j \|_2^2$
+                \State $\phi \gets \Call{GradientDescent}{\phi, \nabla_{\!\phi} \, \ell}$
+            \EndFor{}
+	    \end{algorithmic}
+    \end{algorithm}
+\end{frame}
+
 \begin{frame}[standout]
     Standout
 \end{frame}
