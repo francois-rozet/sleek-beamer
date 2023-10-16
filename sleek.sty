@@ -1,4 +1,4 @@
-\ProvidesPackage{sleek}[2023/09/18 v1.1.2 Sleek for Beamers]
+\ProvidesPackage{sleek}[2023/10/16 v1.2.0 Sleek for Beamers]
 
 %%%%%%%%%%
 % Beamer %
@@ -6,6 +6,13 @@
 
 \usetheme{metropolis}
 \usefonttheme{professionalfonts}
+
+% Fonts
+
+\setbeamerfont{bibliography entry author}{size=\footnotesize, series=\normalfont}
+\setbeamerfont{bibliography entry title}{size=\footnotesize, series=\normalfont}
+\setbeamerfont{bibliography entry location}{size=\footnotesize, series=\normalfont}
+\setbeamerfont{bibliography entry note}{size=\footnotesize, series=\normalfont}
 
 % Colors
 
@@ -72,7 +79,7 @@
 
 \setbeamertemplate{footline}{
     \ifbool{metropolis@standout}{}{
-        \begin{beamercolorbox}[wd=\paperwidth, sep=0.01\paperwidth]{footline}
+        \begin{beamercolorbox}[wd=\paperwidth, sep=0.02\paperwidth]{footline}
             \usebeamerfont{page number in head/foot}
             \usebeamertemplate*{frame footer}
             \hfill
@@ -98,7 +105,11 @@
 
 % Font
 
+\RequirePackage{lmodern}
+\RequirePackage[sfdefault, book]{FiraSans}
 \RequirePackage{microtype}
+
+\renewcommand*{\bfseries}{\firamedium}
 
 % Layout
 
@@ -177,8 +188,10 @@
     style=numeric-comp,
     sorting=none,
     maxcitenames=1,
-    maxbibnames=3
+    maxbibnames=2
 ]{biblatex}
+
+\setlength\bibitemsep{1ex}
 
 \renewcommand*{\bibfont}{\footnotesize}
 
